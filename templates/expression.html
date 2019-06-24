@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container">
+    <div class="row clearfix">
+        <div><h2>Help</h2><br></div>
+		<div class="col-md-12 well">
+        	<h3>What is KRABdb?</h3>
+        	<p>Analysis of the human genome revealed that some 45% of it consists of various kinds of transposable elements. Around 8% of the human DNA is derived from retrovirus-like elements. They originate from ancient retroviral infections or are relics of retroviral transposomal activity in the germ-line cells. Human endogenous retroviruses (HERVs) comprise a part of these elements. They have undergone substantial changes such as mutations of all kinds, deletions and insertions of other transposons, recombinations and mini- and micro-satellite expansion. This is why it is often difficult to identify individual retroviral genes and other retroviral DNA regions.</p>
+        </div>
+        <div class="col-md-12 well">
+            <h3>Web Server Access</h3>
+            <p>The <a href="/">KRABdb</a> web interfaces allow users to explore medical genetic information related to a given drug, disease or gene through four interfaces: <a href="/analyze#drug">Drug</a>, <a href="/analyze#gene">Gene</a>, <a href="/analyze#disease">Disease</a> and <a href="/analyze#batch">Batch prediction</a>:</p><br>
+            <div class="col-md-12 well">
+	            <p>The <a href="#">ZNF</a> interface allows users to submit a  single drug or a file containing multiple drugs to explore their potential  activities. For example, when a user submits a single drug that was shown in  the dropdowns, it will search the database directly for this drug. If it is  unable to find any matches for the search term, it will ask the user to input  the corresponding target genes of the drug. Then, it will call the prediction  module.</p><br>
+	            <p>The <a href="#">Repeat</a> interface allows users to explore  gene-related diseases and drugs only by submitting a gene name or an Entrez ID,  which are included in the server. In addition, users can download overall  information.</p><br>
+	            <p>The <a href="#">Expression</a> interface allows users to obtain relevant disease genes with druggability score, and database source by querying standardized disease descriptions of MeSH.</p><br>
+	            <p>Alternatively, the system allows the user to upload a file on the <a href="/analyze#batch">Batch prediction</a> interface, in which an agent and corresponding targets are in a single row and the terms in each row are separated by tabs, along with an email address to which the predicted activities of the agents will be sent. Offline prediction automatically starts, and the predicted results are sent to the user via e-mail.</p>
+            </div>
+        </div>
+        <div id="0" class="col-md-12 well">
+            <h3>FAQ</h3>
+            <div id="1" class="col-md-12 well well-sm">
+                <h4>What is the goal of SCG-Drug? </h4>
+                <p>To help you to predict potential activities of drugs of interest with respect to their genetic information.</p>
+            </div>
+            <div id="2" class="col-md-12 well well-sm">
+                <h4>What types of drug names/symbols should I use as input?</h4>
+                <p>Any drug names. But there are total 5,759 drugs included in SCG-Drug database. The drug names are listed in the <a href="/static/file/drugs.txt" target="_blank">drugs.txt</a>. Therefore, when you submit a drug name that was listed in the text, SCG-Drug will search the database directly for this drug. If it is unable to find any matches for the search term, it will ask you to input the corresponding target genes of the drug. Then, it will call the prediction module.</p>
+            </div>
+            <div id="3" class="col-md-12 well well-sm">
+                <h4>What types of gene names/symbols should I use as input?</h4>
+                <p>When you want to get the related information of genes at Gene interface, you could type in <a href="http://www.genenames.org/" target="_blank">HGNC gene symbols</a> or <a href="https://www.ncbi.nlm.nih.gov/gene" target="_blank">Gene Entrez ID</a>.<br />But when you want to predict a drug's potential activities at Drug interface, you should only type in <a href="http://www.genenames.org/" target="_blank">HGNC gene symbols</a>. Or you will get incorrect results!</p>
+            </div>
+            <div id="4" class="col-md-12 well well-sm">
+                <h4>What types of diseases should I use as input?</h4>
+                <p>The “Disease” interface allows users to obtain relevant disease genes with druggability score, and database source by querying standardized disease descriptions of MeSH.</p>
+            </div>
+            <div id="5" class="col-md-12 well well-sm">
+                <h4>What kind of supported format file should I upload?</h4>
+                <p>The upload file is a TAB delimited file without comment line or header. The first column is a drug name, the following columns are gene symbols: </p>
+                <pre>
+drug1	IL12A	IL10	SLC6A4	CTLA4
+drug2	AGGF1	BRK1</pre>
+            </div>
+            <div id="6" class="col-md-12 well well-sm">
+                <h4>What is druggability score of disease gene?</h4>
+                <p>We proposed a parameter named druggability score for quantitatively measuring the druggability of disease genes. First, the genes derived from different databases were given different scores, with the highest-quality database (i.e., Clinvar) being assigned with the highest score (eight points), while the lowest (i.e., DisGeNET) with the lowest score (one point). Then, the scores were summed up for each disease gene to define its druggability: </p>
+                <p><img src="/static/images/gongshi.png"></p>
+                <p>where scoreij denotes the assigned score of a pathogenic gene i in the jth database ; i = 1, 2, ..., m; j = 1, 2, ..., k, where m is the number of disease genes, k is the number of databases (k = 8 in this study). </p>
+            </div>
+            <div id="7" class="col-md-12 well well-sm">
+            	<h4>What are the abbreviations used at SCG-Drug?</h4>
+
+
+
+            	<p>Ref. = reference. | <a href="http://www.nature.com/nbt/journal/v30/n2/abs/nbt.2106.html" target="_blank">Wang, X., <em>et al.</em> Three-dimensional reconstruction of protein networks provides insight into human genetic disease. <em>Nat. Biotechnol.</em> 30, 159–164 (2012)</a></p>
+            	<p>GWAS = Genome-Wide Association Studies.</p>
+            	<p>GAD = Genetic Association Database. | The <a href="https://geneticassociationdb.nih.gov/" target="_blank">Genetic Association Database</a> is a database of genetic association data from complex diseases and disorders.</p>
+            	<p>OMIM = Online Mendelian Inheritance in Man. | <a href="http://omim.org/" target="_blank">OMIM</a> is a comprehensive, authoritative compendium of human genes and genetic phenotypes that is freely available and updated daily.</p>
+            	<p>ClinVar = ClinVar. | <a href="http://www.ncbi.nlm.nih.gov/clinvar/" target="_blank">ClinVar</a> is a freely accessible, public archive of reports of the relationships among human variations and phenotypes, with supporting evidence.</p>
+            	<p>Orphanet = Orphanet. | <a href="http://www.orpha.net/consor/cgi-bin/index.php" target="_blank">Orphanet</a> is the reference portal for information on rare diseases and orphan drugs, for all audiences.</p>
+            	<p>GWASdb = GWASdb. | <a href="http://jjwanglab.org/gwasdb" target="_blank">GWASdb</a> is a one stop shop which combines collections of traits/diseases associated SNP (TASs) from current GWAS and their comprehensive functional annotations, as well as disease classifications.</p>
+            	<p>NHGRI GWAS Catalog = NHGRI GWAS Catalog. | The <a href="http://www.ebi.ac.uk/gwas/" target="_blank">Catalog</a> is a quality controlled, manually curated, literature-derived collection of all published genome-wide association studies assaying at least 100,000 SNPs and all SNP-trait associations with p-values < 1.0 x 10<sup>-5</sup> <em>(Hindorff et al., 2009)</em>.</p>
+            	<p>RegulomeDB = RegulomeDB. | <a href="http://www.regulomedb.org/" target="_blank">RegulomeDB</a> is a database that annotates SNPs with known and predicted regulatory elements in the intergenic regions of the H. sapiens genome.</p>
+            	<p>HGMD = The Human Gene Mutation Database. | The <a href="http://www.hgmd.cf.ac.uk/ac/index.php" target="_blank">HGMD</a> represents an attempt to collate known (published) gene lesions responsible for human inherited disease.</p>
+            	<p>DGIdb = Drug-Gene Interaction database. | <a href="http://dgidb.genome.wustl.edu/" target="_blank">Drug-Gene Interaction database</a>. </p>
+            	<p>TTD = Therapeutic Target Database. | <a href="http://bip.nus.edu.sg/group/cjttd/" target="_blank">TTD</a> is a database to provide information about the known and explored therapeutic protein and nucleic acid targets, the targeted disease, pathway information and the corresponding drugs directed at each of these targets.</p>
+            	<p>DrugBank = DrugBank. | The <a href="http://www.drugbank.ca/" target="_blank">DrugBank</a> database is a unique bioinformatics and cheminformatics resource that combines detailed drug data with comprehensive drug target information.</p>
+            	<p>ClinicalTrials = ClinicalTrials.| <a href="http://clinicaltrials.gov/" target="_blank">ClinicalTrials.gov</a> is a registry and results database of publicly and privately supported clinical studies of human participants conducted around the world.</p>
+
+
+
+
+
+
+
+
+            </div>
+            <!--<div id="6" class="col-md-12 well well-sm">
+            	<h4>How should I cite SCG-Drug in my own publications?</h4>
+			</div>-->
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block javascript_f %}
+    <script>
+    </script>
+
+{% endblock %}
