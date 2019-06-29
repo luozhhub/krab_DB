@@ -126,7 +126,7 @@
                         align: 'center',  //对齐方式，居中
                         {#                width: '200px'  // 可以写各种样式#}
                         formatter: function (value, row, index) {
-                            var e = '<a href="http://127.0.0.1:5000/Repeat/repeat_one/' + row.repeat_id + '" mce_href="#" onclick="edit(\'' + row.id + '\')">' + row.repeat_name + '</a> ';  //row.id为每行的id
+                            var e = '<a href="http://47.102.45.227:8080/Repeat/repeat_one/' + row.repeat_id + '" mce_href="#" onclick="edit(\'' + row.id + '\')">' + row.repeat_name + '</a> ';  //row.id为每行的id
                             var d = '<a href="#" mce_href="#" onclick="del(\'' + row.id + '\')">删除</a> ';
                             return e;
                         }

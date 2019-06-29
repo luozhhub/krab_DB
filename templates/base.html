@@ -21,14 +21,16 @@
     <!--@*3、bootstrap table组件以及中文包的引用*@-->
     <script src="/static/bootstrap-table.min.js"></script>
     <link href="/static/bootstrap-table.min.css" rel="stylesheet"/>
-    <script src="/static/bootstrap-table-zh-CN.min.js"></script>
+    <!-- <script src="/static/bootstrap-table-zh-CN.min.js"></script> -->
+    <script src="/static/bootstrap-table-export.min.js"></script>
 
-
-    <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <!-- <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script> -->
+    <script type="text/javascript" src="https://code.highcharts.com.cn/highstock/highstock.js"></script>
 
     <style type="text/css">
     </style>
 </head>
+
 <body data-spy="scroll" data-target="#myScrollspy">
 <header>
 
@@ -45,46 +47,22 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li >
-                        <a href="http://127.0.0.1:5000/KZFP">KZFP</a>
+                        <a href="{{ url_for('kzfp') }}">KZFP</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:5000/Repeat">Repeat</a>
+                        <a href="{{ url_for('repeat_page') }}">Repeat</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:5000/Expression">Expression</a>
+                        <a href="#">Expression</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:5000/Help">Help</a>
+                        <a href="{{ url_for('help') }}">Help</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:5000/About">About</a>
+                        <a href="#">About</a>
                     </li>
 
-                    <!-- <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong
-                                class="caret"></strong></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">Action</a>
-                            </li>
-                            <li>
-                                <a href="#">Another action</a>
-                            </li>
-                            <li>
-                                <a href="#">Something else here</a>
-                            </li>
-                            <li class="divider">
-                            </li>
-                            <li>
-                                <a href="#">Separated link</a>
-                            </li>
-                            <li class="divider">
-                            </li>
-                            <li>
-                                <a href="#">One more separated link</a>
-                            </li>
-                        </ul>
-                    </li> -->
+
                 </ul>
                 <form class="navbar-form navbar-left" role="search">
                     <div class="form-group">
@@ -96,27 +74,7 @@
                     <li>
                         <a href="#">Download</a>
                     </li>
-                    <!--
-                    <li class="dropdown">
-                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                 <a href="#">Action</a>
-                            </li>
-                            <li>
-                                 <a href="#">Another action</a>
-                            </li>
-                            <li>
-                                 <a href="#">Something else here</a>
-                            </li>
-                            <li class="divider">
-                            </li>
-                            <li>
-                                 <a href="#">Separated link</a>
-                            </li>
-                        </ul>
-                    </li>
-                    -->
+
                 </ul>
             </div>
         </div>
